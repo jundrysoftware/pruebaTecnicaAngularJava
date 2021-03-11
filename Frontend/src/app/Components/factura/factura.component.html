@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Prueba Tecnica</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/factura">Crear Factura</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/producto">Crear Producto</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/cliente">Crear Cliente</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2>Crear Factura</h2>
+        </div>
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="inputEmail4">Cliente</label>
+                    <select class="form-control" [(ngModel)]="producto">
+                        <option *ngFor="let item of clientes" value="{{item.id_cliente}}">{{item.nombre}}</option>
+                    </select>
+                  </div>
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Producto</label>
+                <select class="form-control" [(ngModel)]="producto">
+                    <option *ngFor="let item of productos" value="{{item.id_producto}}">{{item.nombre}}</option>
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Cantidad</label>
+                <input type="number" class="form-control" [(ngModel)]="cant">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputAddress">Precio</label>
+              <input type="number" class="form-control" [(ngModel)]="precio">
+            </div>
+           
+            <button type="button" class="btn btn-primary">Facturar</button>
+          </form>
+    </div>
+  </div>
