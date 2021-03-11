@@ -12,6 +12,7 @@ export class FacturaComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProductos();
+    this.getClientes();
   }
 
   productos: any[] = [];
@@ -62,11 +63,14 @@ export class FacturaComponent implements OnInit {
   }
 
   Guardar() {
+    
     let date: Date = new Date();
     var fechahoy = date.getDay() + '-' + date.getMonth() +'-'+date.getFullYear();
     let datos={
       "num_factura":null,
-      "id_cliente": this.cliente,
+      "id_cliente": {
+        "id_cliente" : this.cliente
+      },
       "fecha":fechahoy
     }
     this.rest.PostMethod('/factura',datos)
@@ -89,8 +93,12 @@ export class FacturaComponent implements OnInit {
   crearDetalle(fact) {
     let datos={
       "num_detalle":null,
-      "num_factura": fact,
-      "id_producto":this.producto,
+      "num_factura": {
+        "num_factura": fact
+      },
+      "id_producto": {
+        "id_producto": this.producto
+      },
       "cantidad":this.cant,
       "precio":this.precio
     }

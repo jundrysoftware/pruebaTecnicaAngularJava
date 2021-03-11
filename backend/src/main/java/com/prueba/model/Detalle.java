@@ -16,7 +16,6 @@ public class Detalle  implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long num_detalle;
 
-    @Id
     @ManyToOne
     @JoinColumn(columnDefinition = "num_factura", nullable = false)
     private Factura num_factura;

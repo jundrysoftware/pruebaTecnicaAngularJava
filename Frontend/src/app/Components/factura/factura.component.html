@@ -28,26 +28,26 @@
                 <div class="form-group col-md-12">
                     <label for="inputEmail4">Cliente</label>
                     <select class="form-control" [(ngModel)]="producto">
-                        <option *ngFor="let item of clientes" value="{{item.id_cliente}}">{{item.nombre}}</option>
+                        <option *ngFor="let item of clientes" value="{{item.id_cliente}}">{{item.nombre}} {{item.apellido}}</option>
                     </select>
                   </div>
               <div class="form-group col-md-6">
                 <label for="inputEmail4">Producto</label>
-                <select class="form-control" [(ngModel)]="producto">
+                <select class="form-control" [(ngModel)]="producto" [ngModelOptions]="{standalone: true}" >
                     <option *ngFor="let item of productos" value="{{item.id_producto}}">{{item.nombre}}</option>
                 </select>
               </div>
               <div class="form-group col-md-6">
                 <label for="inputPassword4">Cantidad</label>
-                <input type="number" class="form-control" [(ngModel)]="cant">
+                <input type="number" class="form-control" [(ngModel)]="cant" [ngModelOptions]="{standalone: true}" >
               </div>
             </div>
             <div class="form-group">
               <label for="inputAddress">Precio</label>
-              <input type="number" class="form-control" [(ngModel)]="precio">
+              <input type="number" class="form-control" [(ngModel)]="precio" [ngModelOptions]="{standalone: true}" >
             </div>
            
-            <button type="button" class="btn btn-primary">Facturar</button>
+            <button type="button" class="btn btn-primary" (click)="Guardar()">Facturar</button>
           </form>
     </div>
   </div>
